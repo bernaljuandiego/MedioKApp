@@ -27,7 +27,7 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activities.GymTrainingActivity"></activity>
+        <activity android:name=".activities.gymExerciseActivity"></activity>
     </application>
 
 </manifest>

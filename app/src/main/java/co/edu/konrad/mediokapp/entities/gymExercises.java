@@ -5,7 +5,12 @@ public class gymExercises {
     private int exerciseImg;
     private String exerciseName;
     private String exerciseDescription;
-    private String exerciseTime;
+
+    public gymExercises(int exerciseImg, String exerciseName, String exerciseDescription) {
+        this.exerciseImg = exerciseImg;
+        this.exerciseName = exerciseName;
+        this.exerciseDescription = exerciseDescription;
+    }
 
     public int getExerciseImg() {
         return exerciseImg;
@@ -29,20 +34,5 @@ public class gymExercises {
 
     public void setExerciseDescription(String exerciseDescription) {
         this.exerciseDescription = exerciseDescription;
-    }
-
-    public String getExerciseTime() {
-        return exerciseTime;
-    }
-
-    public void setExerciseTime(String exerciseTime) {
-        this.exerciseTime = exerciseTime;
-    }
-
-    public gymExercises(int exerciseImg, String exerciseName, String exerciseDescription, String exerciseTime) {
-        this.exerciseImg = exerciseImg;
-        this.exerciseName = exerciseName;
-        this.exerciseDescription = exerciseDescription;
-        this.exerciseTime = exerciseTime;
     }
 }
