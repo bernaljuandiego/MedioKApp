@@ -29,13 +29,13 @@ public class gymExerciseActivity extends AppCompatActivity {
     private ArrayList<gymExercises> GetArrayItems() {
         ArrayList<gymExercises> listItems = new ArrayList<>();
 
-        listItems.add(new gymExercises(R.mipmap.ic_abdominales,"Abdominales","Descripción 1"));
-        listItems.add(new gymExercises(R.mipmap.ic_brazos,"Brazos","Descripción 1"));
-        listItems.add(new gymExercises(R.mipmap.ic_espalda,"Espalda","Descripción 1"));
-        listItems.add(new gymExercises(R.mipmap.ic_gluteos,"Glúteos","Descripción 1"));
-        listItems.add(new gymExercises(R.mipmap.ic_hombros,"Hombros","Descripción 1"));
-        listItems.add(new gymExercises(R.mipmap.ic_pecho,"Pecho","Descripción 1"));
-        listItems.add(new gymExercises(R.mipmap.ic_piernas,"Piernas","Descripción 1"));
+        listItems.add(new gymExercises(R.mipmap.ic_abdominales,"Abdominales",getResources().getString(R.string.descAbdominales)));
+        listItems.add(new gymExercises(R.mipmap.ic_brazos,"Brazos",getResources().getString(R.string.descBrazos)));
+        listItems.add(new gymExercises(R.mipmap.ic_espalda,"Espalda",getResources().getString(R.string.descEspalda)));
+        listItems.add(new gymExercises(R.mipmap.ic_gluteos,"Glúteos",getResources().getString(R.string.descGluteos)));
+        listItems.add(new gymExercises(R.mipmap.ic_hombros,"Hombros",getResources().getString(R.string.descHombros)));
+        listItems.add(new gymExercises(R.mipmap.ic_pecho,"Pecho",getResources().getString(R.string.descPecho)));
+        listItems.add(new gymExercises(R.mipmap.ic_piernas,"Piernas",getResources().getString(R.string.descPiernas)));
 
 
         return listItems;
