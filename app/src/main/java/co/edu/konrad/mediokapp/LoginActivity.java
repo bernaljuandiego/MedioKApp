@@ -3,6 +3,7 @@ package co.edu.konrad.mediokapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -31,6 +32,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import co.edu.konrad.mediokapp.activities.gymExerciseActivity;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -86,7 +89,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                Intent intent = new Intent(getApplicationContext(), gymExerciseActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -344,6 +348,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+        }
+
+        private void cambiarVista(){
         }
     }
 }
