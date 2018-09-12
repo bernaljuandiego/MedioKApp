@@ -29,10 +29,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import co.edu.konrad.mediokapp.activities.gymExerciseActivity;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -56,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
+     * jfdfiosfdjg
      */
     private UserLoginTask mAuthTask = null;
 
