@@ -1,4 +1,4 @@
-package co.edu.konrad.mediokapp;
+package co.edu.konrad.mediokapp.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -30,7 +30,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
-import co.edu.konrad.mediokapp.activities.gymExerciseActivity;
+import java.util.concurrent.ExecutionException;
+
+import co.edu.konrad.mediokapp.R;
+import co.edu.konrad.mediokapp.asynctasks.GetStudentsASyncTask;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -94,6 +97,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+
+        try {
+            ArrayList<Object> objetos = new GetStudentsASyncTask(getApplicationContext()).execute(1,2,3,4,5,6,7).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void populateAutoComplete() {
