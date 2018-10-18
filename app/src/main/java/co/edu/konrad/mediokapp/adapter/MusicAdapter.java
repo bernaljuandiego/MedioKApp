@@ -49,7 +49,7 @@ public class MusicAdapter extends BaseAdapter {
 
         musicGenderImg.setImageResource(item.getImgMusicGender());
         musicGenderName.setText(item.getMusicGenderName());
-        musicNumberOfSongs.setText(item.getNumberOfSongs());
+        musicNumberOfSongs.setText(Integer.toString(item.getNumberOfSongs()));
 
         return convertView;
     }

@@ -21,14 +21,7 @@
             android:name=".activities.Splash"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action
-                    android:name="android.intent.action.MAIN">
-                </action>
-                <category
-                    android:name="android.intent.category.LAUNCHER">
-                </category>
-            </intent-filter>
+
         </activity>
 
         //login activity
@@ -49,7 +42,15 @@
         <activity
             android:name=".activities.MusicGenderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">>
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN">
+                </action>
+                <category
+                    android:name="android.intent.category.LAUNCHER">
+                </category>
+            </intent-filter>
         </activity>
     </application>
 

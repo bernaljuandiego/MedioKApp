@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/musicGenderImg"
-        android:layout_width="120dp"
+        android:layout_width="match_parent"
         android:layout_height="120dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
@@ -15,8 +15,7 @@
     <TextView
         android:id="@+id/musicGenderName"
         android:layout_width="match_parent"
-        android:layout_height="82dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -24,7 +23,9 @@
         android:id="@+id/musicNumberOfSongs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:textSize="16dp" />
+
+
+
 
 </LinearLayout>
