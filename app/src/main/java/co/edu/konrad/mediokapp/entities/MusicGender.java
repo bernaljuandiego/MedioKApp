@@ -1,12 +1,12 @@
 package co.edu.konrad.mediokapp.entities;
 
-public class musicGender {
+public class MusicGender {
 
     private int imgMusicGender;
     private String musicGenderName;
     private int numberOfSongs;
 
-    public musicGender(int imgMusicGender, String musicGenderName, int numberOfSongs) {
+    public MusicGender(int imgMusicGender, String musicGenderName, int numberOfSongs) {
         this.imgMusicGender = imgMusicGender;
         this.musicGenderName = musicGenderName;
         this.numberOfSongs = numberOfSongs;

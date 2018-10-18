@@ -11,14 +11,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import co.edu.konrad.mediokapp.R;
-import co.edu.konrad.mediokapp.entities.gymExercises;
+import co.edu.konrad.mediokapp.entities.GymExercises;
 
-public class gymAdapter extends BaseAdapter {
+public class GymAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<gymExercises> listItems;
+    private ArrayList<GymExercises> listItems;
 
-    public gymAdapter(Context context, ArrayList<gymExercises> listItems) {
+    public GymAdapter(Context context, ArrayList<GymExercises> listItems) {
         this.context = context;
         this.listItems = listItems;
     }
@@ -40,7 +40,7 @@ public class gymAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        gymExercises item = (gymExercises) getItem(position);
+        GymExercises item = (GymExercises) getItem(position);
 
         convertView = LayoutInflater.from(context).inflate(R.layout.items_gym, null);
         ImageView exerciseImg = (ImageView) convertView.findViewById(R.id.exerciseImg);

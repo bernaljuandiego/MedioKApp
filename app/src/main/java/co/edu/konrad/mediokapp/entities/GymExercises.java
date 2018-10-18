@@ -1,12 +1,12 @@
 package co.edu.konrad.mediokapp.entities;
 
-public class gymExercises {
+public class GymExercises {
 
     private int exerciseImg;
     private String exerciseName;
     private String exerciseDescription;
 
-    public gymExercises(int exerciseImg, String exerciseName, String exerciseDescription) {
+    public GymExercises(int exerciseImg, String exerciseName, String exerciseDescription) {
         this.exerciseImg = exerciseImg;
         this.exerciseName = exerciseName;
         this.exerciseDescription = exerciseDescription;
