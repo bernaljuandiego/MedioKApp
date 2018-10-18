@@ -32,7 +32,6 @@ public class MusicGenderActivity extends AppCompatActivity {
 
         listItems.add(new MusicGender(R.mipmap.ic_brazos, "Salsa", 2));
         listItems.add(new MusicGender(R.mipmap.imagen_salsa, "Reggeaton", 2));
-        listItems.add(new MusicGender(R.mipmap.ic_abdominales,"Prueba",10));
 
         return listItems;
     }
