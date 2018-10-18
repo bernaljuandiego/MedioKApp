@@ -8,6 +8,8 @@
         android:id="@+id/musicGenderImg"
         android:layout_width="match_parent"
         android:layout_height="120dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
         android:scaleType="fitXY" />
 
     <TextView
@@ -18,15 +20,12 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/musicDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18dp" />
-
-    <TextView
         android:id="@+id/musicNumberOfSongs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16dp" />
+
+
+
 
 </LinearLayout>

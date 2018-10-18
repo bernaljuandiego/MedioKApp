@@ -46,12 +46,10 @@ public class MusicAdapter extends BaseAdapter {
         ImageView musicGenderImg = (ImageView) convertView.findViewById(R.id.musicGenderImg);
         TextView musicGenderName = (TextView) convertView.findViewById(R.id.musicGenderName);
         TextView musicNumberOfSongs = (TextView) convertView.findViewById(R.id.musicNumberOfSongs);
-        TextView musicDescription = (TextView) convertView.findViewById(R.id.musicDescription);
 
         musicGenderImg.setImageResource(item.getImgMusicGender());
         musicGenderName.setText(item.getMusicGenderName());
-        musicNumberOfSongs.setText("Canciones disponibles: "+Integer.toString(item.getNumberOfSongs()));
-        musicDescription.setText(item.getMusicGenderDescription());
+        musicNumberOfSongs.setText(Integer.toString(item.getNumberOfSongs()));
 
         return convertView;
     }
