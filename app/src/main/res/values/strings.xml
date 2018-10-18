@@ -15,6 +15,7 @@
         completions."
     </string>
 
+    <!-- Strings related to Gym Exercise Activity -->
     <string name="descAbdominales"> Es importante que en ejercicios abdominales haya un espacio
         siempre entre la barbilla y el pecho del tamaño de un puño de la mano. Así, no tensionamos el
         cuello sino que el trabajo lo realizan los músculos del abdomen
@@ -47,6 +48,20 @@
     <string name="descPiernas"> Para que nuestros glúteos y piernas crezcan será necesario combinar una rutina
         de ejercicios destinada a aumentar masa muscular, comer más calorías de las que gastamos y proporcionar a
         nuestro cuerpo días de descanso entre entrenamientos.
+    </string>
+
+    <!-- Strings related to Gym Exercise Activity -->
+    <string name="descSalsa"> Con este ritmo no pararás de bailar; Aquí encontrarás artistas como: Gilberto Santa
+        Rosa, Marc Antony, Oscar D León, entre otros..
+    </string>
+
+    <string name="descReggeaton">
+    </string>
+
+    <string name="descBachata">
+    </string>
+
+    <string name="descElectronica">
     </string>
 
 </resources>
