@@ -30,8 +30,12 @@ public class MusicGenderActivity extends AppCompatActivity {
     private ArrayList<MusicGender> GetArrayItems() {
         ArrayList<MusicGender> listItems = new ArrayList<>();
 
-        listItems.add(new MusicGender(R.mipmap.ic_brazos, "Salsa", 2));
-        listItems.add(new MusicGender(R.mipmap.imagen_salsa, "Reggeaton", 2));
+        listItems.add(new MusicGender(R.drawable.salsa_dancers, getResources().getString(R.string.descSalsa), 89));
+        listItems.add(new MusicGender(R.drawable.reggeaton_dancers, getResources().getString(R.string.descReggeaton), 125));
+        listItems.add(new MusicGender(R.drawable.pop_dancers, getResources().getString(R.string.descPop), 210));
+        listItems.add(new MusicGender(R.drawable.electronica_dancers, getResources().getString(R.string.descElectronica), 187));
+        listItems.add(new MusicGender(R.drawable.bachata_dancers, getResources().getString(R.string.descBachata), 95));
+        listItems.add(new MusicGender(R.drawable.ballenato_dancers, getResources().getString(R.string.descBallenato), 150));
 
         return listItems;
     }

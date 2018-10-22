@@ -15,6 +15,8 @@
         completions."
     </string>
 
+
+    <!-- Strings related to  GymExerciseActivity-->
     <string name="descAbdominales"> Es importante que en ejercicios abdominales haya un espacio
         siempre entre la barbilla y el pecho del tamaño de un puño de la mano. Así, no tensionamos el
         cuello sino que el trabajo lo realizan los músculos del abdomen
@@ -47,6 +49,31 @@
     <string name="descPiernas"> Para que nuestros glúteos y piernas crezcan será necesario combinar una rutina
         de ejercicios destinada a aumentar masa muscular, comer más calorías de las que gastamos y proporcionar a
         nuestro cuerpo días de descanso entre entrenamientos.
+    </string>
+
+    <!-- Strings related to  MusicGenderActivity-->
+    <string name="descSalsa"> En esta Playlist podrás entrenar escuchando a artistas como: Maelo Ruiz, Gilberto Santa
+        Rosa, Héctor Lavoe, Willie Colón, entre otros.
+    </string>
+
+    <string name="descReggeaton"> Si lo que te gusta es mover las caderas y sentir el flow musical, rítmico y tropical,
+        te recomendamos estos artistas: Daddy Yankee, Nicky Jam, J Balvin, Yandel, Don Omar, entre otros.
+    </string>
+
+    <string name="descPop"> Entendemos lo que te gusta, así que por qué no disfrutar de los artistas más reconocidos
+        en la escena Pop: Shakira, Madonna, Britney Spears, Rihanna, Katy Perry, Lady Gaga y muchos más.
+    </string>
+
+    <string name="descElectronica"> Si tus gustos van hacia los sonidos electrónicos, aquí podrás oír a los mejores
+        artistas de la escena electrónica actual, DJs como: Tiësto, Kraftwerk, Justice, David Guetta, Deadmau5.
+    </string>
+
+    <string name="descBachata"> Vamos a mover la caderas y a ponernos en sintonía con lo mejor de la bachata, a
+        cargar de: Romeo Santos, Prince Royce, Frank Reyes, Héctor Acosta, Zacarías Herrera, y más.
+    </string>
+
+    <string name="descBallenato"> Nada como lo mejor de nuestras raíces, así que hagamos un tributo a lo mejor
+        de la música vallenta a cargo del Binomio de Oro, Miguel Morales, Diomedez Díaz, Silvestre Dangond.
     </string>
 
 </resources>

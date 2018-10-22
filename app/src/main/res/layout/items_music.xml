@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,25 +8,23 @@
     <ImageView
         android:id="@+id/musicGenderImg"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:adjustViewBounds="false"
+        android:layout_height="162dp"
+        android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:scaleType="fitXY" />
 
     <TextView
-        android:id="@+id/musicGenderName"
+        android:id="@+id/musicGenderDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_height="129dp"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/musicNumberOfSongs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16dp" />
-
-
-
+        android:layout_height="38dp"
+        android:textAllCaps="true"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 </LinearLayout>
