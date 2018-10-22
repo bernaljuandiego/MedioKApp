@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +21,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 import co.edu.konrad.mediokapp.R;
-import co.edu.konrad.mediokapp.activities.LoginActivity;
 
 public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -89,7 +87,7 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
     }
 
     private void goGoogleLoginScreen() {
-        Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

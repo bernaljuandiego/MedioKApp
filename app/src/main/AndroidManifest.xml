@@ -10,53 +10,48 @@
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/logo"
+        android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         //primer actividad Splash
         <activity
             android:name=".activities.Splash"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         //login activity
-        <activity
-            android:name=".activities.LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        
+
         //gym excercises activity
         <activity
             android:name=".activities.GymExerciseActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            >
-        </activity>
-        
+            android:theme="@style/AppTheme" />
         //music gender activity
         <activity
             android:name=".activities.MusicGenderActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activities.MenuActivity"></activity>
-        
+            android:theme="@style/AppTheme" />
+        //menu activity
+        <activity
+            android:name=".activities.MenuActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         //MultiLogin Activity
-        <activity android:name=".activities.MultiLoginActivity">
-            
-        </activity>
-        
+        <activity
+            android:name=".activities.MultiLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         //Google Login Activity
-        <activity android:name=".activities.GoogleLoginActivity">
-            
-        </activity>
+        <activity
+            android:name=".activities.GoogleLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

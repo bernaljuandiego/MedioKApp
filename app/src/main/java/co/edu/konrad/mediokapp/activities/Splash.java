@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import co.edu.konrad.mediokapp.R;
-import co.edu.konrad.mediokapp.activities.LoginActivity;
 
 public class Splash extends AppCompatActivity {
 
