@@ -23,7 +23,7 @@ public class Splash extends AppCompatActivity {
     }
 
     private void cambioPantalla() {
-        Intent i = new Intent(this, LoginActivity.class);
+        Intent i = new Intent(this, MultiLoginActivity.class);
         startActivity(i);
 
     }

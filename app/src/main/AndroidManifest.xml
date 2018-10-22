@@ -18,31 +18,7 @@
         <activity
             android:name=".activities.Splash"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-
-        //login activity
-        <activity
-            android:name=".activities.LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-
-        //gym excercises activity
-        <activity
-            android:name=".activities.GymExerciseActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            >
-        </activity>
-
-        //music gender activity
-        <activity
-            android:name=".activities.MusicGenderActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activities.MenuActivity"></activity>
-
-        //MultiLogin Activity
-        <activity android:name=".activities.MultiLoginActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,9 +27,35 @@
 
         </activity>
 
+        //login activity
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        
+        //gym excercises activity
+        <activity
+            android:name=".activities.GymExerciseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            >
+        </activity>
+        
+        //music gender activity
+        <activity
+            android:name=".activities.MusicGenderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activities.MenuActivity"></activity>
+        
+        //MultiLogin Activity
+        <activity android:name=".activities.MultiLoginActivity">
+            
+        </activity>
+        
         //Google Login Activity
         <activity android:name=".activities.GoogleLoginActivity">
-
+            
         </activity>
     </application>
 

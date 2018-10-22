@@ -83,4 +83,5 @@
     <string name="salir">Salir</string>
     <string name="acceder_a_mediokapp">Acceder a MedioKApp</string>
     <string name="not_close_session">No se pudo cerra sesión</string>
+    <string name="welcome_message">Bienvenido al Centro de Bienestar Universitario de La Fundación Universitaria Konrad Lorenz.</string>
 </resources>

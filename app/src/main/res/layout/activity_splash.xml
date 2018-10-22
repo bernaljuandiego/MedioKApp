@@ -32,22 +32,9 @@
                 android:layout_margin="20dp"
                 android:layout_marginStart="39dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/te"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_margin="20dp"
-                android:layout_toEndOf="@+id/imageView5"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Bienvenido a MedioK app"
-                android:textColor="#525252"
-                android:textSize="8sp"
-                android:textStyle="bold"
-                app:autoSizeTextType="uniform" />
+                app:srcCompat="@drawable/mediokapp_logo"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="39dp" />
 
         </LinearLayout>
 
