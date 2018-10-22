@@ -51,7 +51,14 @@
             android:name=".activities.GoogleLoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
+        <activity
+            android:name="co.edu.konradlorenz.mediokapp.PrincipalActivity"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PrincipalActivity"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

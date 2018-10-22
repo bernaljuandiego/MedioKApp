@@ -87,7 +87,7 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
     }
 
     private void goGoogleLoginScreen() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(this, PrincipalActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
