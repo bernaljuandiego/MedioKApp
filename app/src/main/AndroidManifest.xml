@@ -4,8 +4,7 @@
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,42 +14,46 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         //primer actividad Splash
         <activity
             android:name=".activities.Splash"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         //login activity
         <activity
             android:name=".activities.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         //gym excercises activity
         <activity
             android:name=".activities.GymExerciseActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            >
         </activity>
 
         //music gender activity
         <activity
             android:name=".activities.MusicGenderActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activities.MenuActivity"></activity>
+
+        //MultiLogin Activity
+        <activity android:name=".activities.MultiLoginActivity">
+
             <intent-filter>
-                <action
-                    android:name="android.intent.action.MAIN">
-                </action>
-                <category
-                    android:name="android.intent.category.LAUNCHER">
-                </category>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+        //Google Login Activity
+        <activity android:name=".activities.GoogleLoginActivity">
+
         </activity>
     </application>
 

@@ -76,4 +76,11 @@
         de la música vallenta a cargo del Binomio de Oro, Miguel Morales, Diomedez Díaz, Silvestre Dangond.
     </string>
 
+    <!-- Strings related to  MenuActivity-->
+    <string name="txtMenuOpcion1">
+    </string>
+    <string name="not_log_in">No se puede iniciar sesión</string>
+    <string name="salir">Salir</string>
+    <string name="acceder_a_mediokapp">Acceder a MedioKApp</string>
+    <string name="not_close_session">No se pudo cerra sesión</string>
 </resources>
