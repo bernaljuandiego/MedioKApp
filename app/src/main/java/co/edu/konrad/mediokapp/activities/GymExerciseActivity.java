@@ -32,7 +32,6 @@ public class GymExerciseActivity extends AppCompatActivity {
         listItems.add(new GymExercises(R.mipmap.ic_abdominales,"Abdominales",getResources().getString(R.string.descAbdominales)));
         listItems.add(new GymExercises(R.mipmap.ic_brazos,"Brazos",getResources().getString(R.string.descBrazos)));
         listItems.add(new GymExercises(R.mipmap.ic_espalda,"Espalda",getResources().getString(R.string.descEspalda)));
-        listItems.add(new GymExercises(R.mipmap.ic_gluteos,"Glúteos",getResources().getString(R.string.descGluteos)));
         listItems.add(new GymExercises(R.mipmap.ic_hombros,"Hombros",getResources().getString(R.string.descHombros)));
         listItems.add(new GymExercises(R.mipmap.ic_pecho,"Pecho",getResources().getString(R.string.descPecho)));
         listItems.add(new GymExercises(R.mipmap.ic_piernas,"Piernas",getResources().getString(R.string.descPiernas)));

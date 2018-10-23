@@ -30,7 +30,9 @@
         <activity
             android:name=".activities.GymExerciseActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme">
+
+        </activity>
         //music gender activity
         <activity
             android:name=".activities.MusicGenderActivity"

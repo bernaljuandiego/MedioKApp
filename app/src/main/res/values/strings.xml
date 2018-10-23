@@ -189,4 +189,5 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="training_instructions">Elige la modalidad de entrenamiento en la que estás interesado hoy:</string>
 </resources>
