@@ -10,7 +10,6 @@
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         //primer actividad Splash
@@ -39,10 +38,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         //menu activity
-        <activity
-            android:name=".activities.MenuActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
         //MultiLogin Activity
         <activity
             android:name=".activities.MultiLoginActivity"
@@ -53,10 +48,6 @@
             android:name=".activities.GoogleLoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name="co.edu.konradlorenz.mediokapp.PrincipalActivity"
-            android:label="@string/title_activity_principal"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.PrincipalActivity"
             android:label="@string/title_activity_principal"

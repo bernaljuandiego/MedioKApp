@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -18,6 +21,7 @@ import co.edu.konrad.mediokapp.R;
 
 public class MultiLoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
+    private Thread splashTread;
     private GoogleApiClient googleApiClient;
     private SignInButton signInButton;
     public static final int SIGN_IN_CODE = 777;
@@ -46,6 +50,35 @@ public class MultiLoginActivity extends AppCompatActivity implements GoogleApiCl
                 startActivityForResult(intent, 777);
             }
         });
+
+        StartAnimations();
+    }
+
+
+    private void StartAnimations() {
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
+
+        anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        anim.reset();
+        CardView l=(CardView) findViewById(R.id.card);
+        l.clearAnimation();
+        l.startAnimation(anim);
+
+        splashTread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    int waited = 0;
+                    while (waited < 3000) {
+                        sleep(100);
+                        waited += 100;
+                    }
+                } catch (InterruptedException e) {
+                }
+
+            }
+        };
+        splashTread.start();
 
     }
 

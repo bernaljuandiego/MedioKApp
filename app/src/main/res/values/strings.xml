@@ -82,7 +82,7 @@
     <string name="not_log_in">No se puede iniciar sesión</string>
     <string name="salir">Salir</string>
     <string name="acceder_a_mediokapp">Acceder a MedioKApp</string>
-    <string name="not_close_session">No se pudo cerra sesión</string>
+    <string name="not_close_session">No se pudo cerrar sesión</string>
     <string name="welcome_message">Bienvenido al Centro de Bienestar Universitario de La Fundación Universitaria Konrad Lorenz.</string>
     <string name="title_activity_principal">PrincipalActivity</string>
     <string name="title_section1">Section 1</string>
@@ -190,4 +190,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="training_instructions">Elige la modalidad de entrenamiento en la que estás interesado hoy:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
