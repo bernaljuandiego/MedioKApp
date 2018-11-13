@@ -13,11 +13,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -27,9 +28,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.gson.Gson;
 
 import co.edu.konrad.mediokapp.Categories;
+import co.edu.konrad.mediokapp.ExercisesFragment;
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.asynctasks.GetAccountImage;
 
@@ -63,6 +64,13 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         headerView = navigationView.getHeaderView(0);
+
+
+        WebView webView = (WebView) findViewById(R.id.webView);
+        Log.e("navegador",""+webView);
+        webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("https://medio.konradlorenz.edu.co");
 
         actualizarHeader();
     }
@@ -136,8 +144,7 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
 
 
         if (id == R.id.nav_gym) {
-            Intent intent = new Intent(this, GymExerciseActivity.class);
-            startActivity(intent);
+           getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new ExercisesFragment()).commit();
         } else if (id == R.id.nav_danza) {
             Intent intent = new Intent(this, MusicGenderActivity.class);
             startActivity(intent);

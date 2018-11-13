@@ -29,9 +29,7 @@
         <activity
             android:name=".activities.GymExerciseActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         //music gender activity
         <activity
             android:name=".activities.MusicGenderActivity"
@@ -51,11 +49,11 @@
         <activity
             android:name=".activities.PrincipalActivity"
             android:label="@string/title_activity_principal"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Categories"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
