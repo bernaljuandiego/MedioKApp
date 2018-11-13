@@ -35,7 +35,7 @@
         android:iconTint="@color/alice_blue">
         <menu>
             <item
-                android:id="@+id/cerrarSesion"
+                android:id="@+id/nav_cerrarSesion"
                 android:iconTint="@color/alice_blue"
                 android:icon="@drawable/ic_exit"
                 android:title="Cerrar Sesión " />

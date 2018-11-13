@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
@@ -25,8 +26,10 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.gson.Gson;
 
+import co.edu.konrad.mediokapp.Categories;
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.asynctasks.GetAccountImage;
 
@@ -115,14 +118,10 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_salir) {
-            return true;
+            LogOut();
         }
 
         return super.onOptionsItemSelected(item);
@@ -146,7 +145,10 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
             Intent intent = new Intent(this, MusicGenderActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_ver) {
-
+            Intent intent = new Intent(this, Categories.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_cerrarSesion) {
+            LogOut();
         }
 
 
@@ -159,5 +161,20 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    public void LogOut() {
+        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+                if (status.isSuccess()) {
+                    Intent intent = new Intent(getApplicationContext(), MultiLoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.not_close_session, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
