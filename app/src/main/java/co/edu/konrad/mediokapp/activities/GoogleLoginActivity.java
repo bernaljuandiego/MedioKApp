@@ -1,6 +1,7 @@
 package co.edu.konrad.mediokapp.activities;
 
 import android.content.Intent;
+import android.os.Debug;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,10 +20,10 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.ResultCallbacks;
 import com.google.android.gms.common.api.Status;
 
 import co.edu.konrad.mediokapp.R;
-import co.edu.konrad.mediokapp.entities.Account;
 
 public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -30,7 +31,6 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
     private TextView nameGoogleLogin;
     private TextView emailGoogleLogin;
     private TextView idTextView;
-    private Account cuenta;
 
     private GoogleApiClient googleApiClient;
 
@@ -58,7 +58,6 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
     @Override
     protected void onStart() {
         super.onStart();
-
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
         if(opr.isDone()){
             GoogleSignInResult result = opr.get();
@@ -75,30 +74,20 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
 
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
-
+            Log.e("cuenta","si hay cuenta");
             GoogleSignInAccount account = result.getSignInAccount();
-            Log.e("APP_E" , account.toJson().toString());
-            cuenta = new Account(account);
-
-            cuenta.setEmailGoogleLogin(account.getEmail());
-            cuenta.setNameGoogleLogin(account.getDisplayName());
-
             nameGoogleLogin.setText(account.getDisplayName());
             emailGoogleLogin.setText(account.getEmail());
             idTextView.setText(account.getId());
-
             Glide.with(this).load(account.getPhotoUrl()).into(photoGoogleLogin);
-
         } else {
-            goGoogleLoginScreen();
+            goGoogleLoginOut();
         }
     }
 
     private void goGoogleLoginScreen() {
         Intent intent = new Intent(this, PrincipalActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        Log.e("APP_E", "Send - " + cuenta.toString());
-        intent.putExtra("USER" , cuenta.toString());
         startActivity(intent);
     }
 
@@ -122,14 +111,10 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
     }
 
     public void LogIn(View view) {
-        Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+        Auth.GoogleSignInApi.silentSignIn(googleApiClient).setResultCallback(new ResultCallback<GoogleSignInResult>() {
             @Override
-            public void onResult(@NonNull Status status) {
-                if (status.isSuccess()) {
-                    goGoogleLoginScreen();
-                } else {
-                    Toast.makeText(getApplicationContext(), R.string.not_close_session, Toast.LENGTH_SHORT).show();
-                }
+            public void onResult(@NonNull GoogleSignInResult result) {
+                goGoogleLoginScreen();
             }
         });
     }

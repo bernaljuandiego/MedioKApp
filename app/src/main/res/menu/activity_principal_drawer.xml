@@ -6,24 +6,39 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_gym"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_gym"
+            android:iconTint="@color/alice_blue"
             android:title="ejercicios GYM" />
         <item
             android:id="@+id/nav_danza"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_music"
+            android:iconTint="@color/alice_blue"
             android:title="generos de danza" />
     </group>
 
-    <item android:title="Asistencia">
+    <item android:title="Asistencia"
+        android:iconTint="@color/alice_blue">
         <menu>
             <item
                 android:id="@+id/nav_agregar"
-                android:icon="@drawable/ic_menu_manage"
+                android:iconTint="@color/alice_blue"
+                android:icon="@drawable/ic_register"
                 android:title="Registrar " />
             <item
                 android:id="@+id/nav_ver"
-                android:icon="@drawable/ic_menu_camera"
+                android:iconTint="@color/alice_blue"
+                android:icon="@drawable/ic_list"
                 android:title="Ver " />
+        </menu>
+    </item>
+    <item android:title="@string/sesion"
+        android:iconTint="@color/alice_blue">
+        <menu>
+            <item
+                android:id="@+id/cerrarSesion"
+                android:iconTint="@color/alice_blue"
+                android:icon="@drawable/ic_exit"
+                android:title="Cerrar Sesión " />
         </menu>
     </item>
 

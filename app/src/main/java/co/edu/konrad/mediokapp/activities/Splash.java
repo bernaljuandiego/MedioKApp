@@ -43,7 +43,7 @@ public class Splash extends AppCompatActivity {
                         waited += 100;
                     }
                     Intent intent = new Intent(Splash.this,
-                            MultiLoginActivity.class);
+                            GoogleLoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     Splash.this.finish();
