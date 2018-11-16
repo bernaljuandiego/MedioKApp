@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -29,8 +31,6 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-import co.edu.konrad.mediokapp.Categories;
-import co.edu.konrad.mediokapp.ExercisesFragment;
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.asynctasks.GetAccountImage;
 
@@ -64,13 +64,6 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         headerView = navigationView.getHeaderView(0);
-
-
-        WebView webView = (WebView) findViewById(R.id.webView);
-        Log.e("navegador",""+webView);
-        webView.setWebViewClient(new WebViewClient());
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://medio.konradlorenz.edu.co");
 
         actualizarHeader();
     }
@@ -142,27 +135,35 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         int id = item.getItemId();
 
 
+        cambiarContenido(id);
 
-        if (id == R.id.nav_gym) {
-           getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new ExercisesFragment()).commit();
-        } else if (id == R.id.nav_danza) {
-            Intent intent = new Intent(this, MusicGenderActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_agregar) {
-            Intent intent = new Intent(this, MusicGenderActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_ver) {
-            Intent intent = new Intent(this, Categories.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_cerrarSesion) {
-            LogOut();
+
+        return true;
+    }
+
+    public void cambiarContenido(int id){
+        Fragment fragment = new HomeFragment();
+        switch (id){
+            case R.id.nav_home:
+                fragment = new HomeFragment();
+            break;
+            case R.id.nav_gym:
+                    fragment = new ExercisesFragment();
+                break;
+            case R.id.nav_danza:
+                    fragment = new MusicFragment();
+                break;
+
         }
 
-
+        if(fragment != null){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.contenido, fragment);
+            ft.commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     @Override

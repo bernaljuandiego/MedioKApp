@@ -26,15 +26,7 @@
         //login activity
 
         //gym excercises activity
-        <activity
-            android:name=".activities.GymExerciseActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
         //music gender activity
-        <activity
-            android:name=".activities.MusicGenderActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
         //menu activity
         //MultiLogin Activity
         <activity

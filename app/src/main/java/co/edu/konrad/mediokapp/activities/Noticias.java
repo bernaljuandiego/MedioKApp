@@ -1,4 +1,4 @@
-package co.edu.konrad.mediokapp;
+package co.edu.konrad.mediokapp.activities;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,16 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import co.edu.konrad.mediokapp.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link noticias.OnFragmentInteractionListener} interface
+ * {@link Noticias.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link noticias#newInstance} factory method to
+ * Use the {@link Noticias#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class noticias extends Fragment {
+public class Noticias extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +33,7 @@ public class noticias extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public noticias() {
+    public Noticias() {
         // Required empty public constructor
     }
 
@@ -41,11 +43,11 @@ public class noticias extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment noticias.
+     * @return A new instance of fragment Noticias.
      */
     // TODO: Rename and change types and number of parameters
-    public static noticias newInstance(String param1, String param2) {
-        noticias fragment = new noticias();
+    public static Noticias newInstance(String param1, String param2) {
+        Noticias fragment = new Noticias();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,15 +62,15 @@ public class noticias extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //WebView webView = (WebView) getView().findViewById(R.id.webView);
-        //webView.setWebViewClient(new WebViewClient());
-        //webView.loadUrl("https://medio.konradlorenz.edu.co");
+
         return inflater.inflate(R.layout.content_principal, container, false);
     }
 

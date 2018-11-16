@@ -1,4 +1,4 @@
-package co.edu.konrad.mediokapp;
+package co.edu.konrad.mediokapp.activities;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.adapter.GymAdapter;
 import co.edu.konrad.mediokapp.adapter.MusicAdapter;
 import co.edu.konrad.mediokapp.entities.GymExercises;
