@@ -6,10 +6,12 @@
     tools:context=".activities.MusicFragment">
 
     <ListView
+        android:id="@+id/lvItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="false"
+        android:divider="#000000"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:id="@+id/lvItems"/>
+        tools:layout_editor_absoluteY="8dp" />
 
 </FrameLayout>

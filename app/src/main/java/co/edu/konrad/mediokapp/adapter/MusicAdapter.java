@@ -42,7 +42,7 @@ public class MusicAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         MusicGender item = (MusicGender) getItem(position);
 
-        convertView = LayoutInflater.from(context).inflate(R.layout.items_music, null);
+        convertView = LayoutInflater.from(context).inflate(R.layout.adapter_music, null);
         ImageView musicGenderImg = (ImageView) convertView.findViewById(R.id.musicGenderImg);
         TextView musicGenderName = (TextView) convertView.findViewById(R.id.musicGenderDescription);
         TextView musicNumberOfSongs = (TextView) convertView.findViewById(R.id.musicNumberOfSongs);

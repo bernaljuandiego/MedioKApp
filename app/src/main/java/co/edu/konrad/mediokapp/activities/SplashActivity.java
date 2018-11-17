@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import co.edu.konrad.mediokapp.R;
 
-public class Splash extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     private Thread splashTread;
 
@@ -37,20 +35,20 @@ public class Splash extends AppCompatActivity {
             public void run() {
                 try {
                     int waited = 0;
-                    // Splash screen pause time
+                    // SplashActivity screen pause time
                     while (waited < 2000) {
                         sleep(100);
                         waited += 100;
                     }
-                    Intent intent = new Intent(Splash.this,
+                    Intent intent = new Intent(SplashActivity.this,
                             GoogleLoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
-                    Splash.this.finish();
+                    SplashActivity.this.finish();
                 } catch (InterruptedException e) {
                     // do nothing
                 } finally {
-                    Splash.this.finish();
+                    SplashActivity.this.finish();
                 }
 
             }

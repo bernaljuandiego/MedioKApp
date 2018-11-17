@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         //primer actividad Splash
         <activity
-            android:name=".activities.Splash"
+            android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -41,10 +41,6 @@
         <activity
             android:name=".activities.PrincipalActivity"
             android:label="@string/title_activity_principal"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Categories"
-            android:label="@string/title_activity_login"
             android:theme="@style/AppTheme" />
     </application>
 

@@ -13,12 +13,12 @@
             android:id="@+id/nav_gym"
             android:icon="@drawable/ic_gym"
             android:iconTint="@color/alice_blue"
-            android:title="ejercicios GYM" />
+            android:title="Ejercicios Gimnasio" />
         <item
             android:id="@+id/nav_danza"
             android:icon="@drawable/ic_music"
             android:iconTint="@color/alice_blue"
-            android:title="generos de danza" />
+            android:title="Géneros Musicales" />
     </group>
 
     <item android:title="Asistencia"

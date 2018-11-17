@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".adapter.UsuarioAdapter">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/carta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="7dp"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:divider="#000000"
+                android:dividerPadding="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:showDividers="beginning|end">
+
+                <ImageView
+                    android:id="@+id/imagenCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="3"
+                    app:srcCompat="@mipmap/ic_launcher_round"
+                    tools:src="@tools:sample/avatars[2]" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nombreCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoText="false"
+                        android:padding="5dp"
+                        android:text="TextView"
+                        android:textStyle="bold"
+                        app:autoSizeTextType="uniform"
+                        tools:text="@tools:sample/cities" />
+
+                    <TextView
+                        android:id="@+id/apellidoCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoText="false"
+                        android:padding="5dp"
+                        android:paddingBottom="8dp"
+                        android:text="TextView"
+                        android:textStyle="bold"
+                        app:autoSizeTextType="uniform"
+                        tools:text="@tools:sample/date/hhmm" />
+
+                    <TextView
+                        android:id="@+id/codigoCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoText="false"
+                        android:padding="5dp"
+                        android:paddingBottom="8dp"
+                        android:text="TextView"
+                        android:textStyle="bold"
+                        app:autoSizeTextType="uniform" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/fechaCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:padding="5dp"
+                    android:paddingBottom="8dp"
+                    android:text="TextView"
+                    android:textStyle="bold"
+                    app:autoSizeTextType="uniform"
+                    tools:text="@tools:sample/lorem" />
+
+                <TextView
+                    android:id="@+id/usoCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:padding="5dp"
+                    android:paddingBottom="8dp"
+                    android:text="TextView"
+                    android:textStyle="bold"
+                    app:autoSizeTextType="uniform"
+                    tools:text="@tools:sample/date/hhmm" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

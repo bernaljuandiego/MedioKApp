@@ -11,12 +11,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,7 +67,7 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
 
     private void actualizarHeader() {
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
-        if(opr.isDone()){
+        if (opr.isDone()) {
             GoogleSignInResult result = opr.get();
             actualizarCamposHeader(result);
         } else {
@@ -83,7 +80,7 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         }
     }
 
-    private void actualizarCamposHeader(GoogleSignInResult result){
+    private void actualizarCamposHeader(GoogleSignInResult result) {
         if (result.isSuccess()) {
             GoogleSignInAccount account = result.getSignInAccount();
             TextView nombreCuenta = (TextView) headerView.findViewById(R.id.nombreCuenta);
@@ -95,7 +92,7 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
 
         } else {
             Intent intent = new Intent(this, MultiLoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
     }
@@ -114,6 +111,12 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.principal, menu);
+        Fragment fragment = new HomeFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.contenido, fragment);
+        ft.commit();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -141,22 +144,30 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         return true;
     }
 
-    public void cambiarContenido(int id){
+    public void cambiarContenido(int id) {
         Fragment fragment = new HomeFragment();
-        switch (id){
+        switch (id) {
             case R.id.nav_home:
                 fragment = new HomeFragment();
-            break;
+                break;
             case R.id.nav_gym:
-                    fragment = new ExercisesFragment();
+                fragment = new ExercisesFragment();
                 break;
             case R.id.nav_danza:
-                    fragment = new MusicFragment();
+                fragment = new MusicFragment();
                 break;
-
+            case R.id.nav_ver:
+                fragment = new ListarFragment();
+                break;
+            case R.id.nav_agregar:
+                fragment = new MusicFragment();
+                break;
+            case R.id.nav_cerrarSesion:
+                LogOut();
+                break;
         }
 
-        if(fragment != null){
+        if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.contenido, fragment);
             ft.commit();
@@ -177,7 +188,7 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
             public void onResult(@NonNull Status status) {
                 if (status.isSuccess()) {
                     Intent intent = new Intent(getApplicationContext(), MultiLoginActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.not_close_session, Toast.LENGTH_SHORT).show();

@@ -42,7 +42,7 @@ public class GymAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         GymExercises item = (GymExercises) getItem(position);
 
-        convertView = LayoutInflater.from(context).inflate(R.layout.items_gym, null);
+        convertView = LayoutInflater.from(context).inflate(R.layout.adapter_gym, null);
         ImageView exerciseImg = (ImageView) convertView.findViewById(R.id.exerciseImg);
         TextView exerciseName = (TextView) convertView.findViewById(R.id.exerciseName);
         TextView exerciseDescription = (TextView) convertView.findViewById(R.id.exerciseDescription);
