@@ -1,7 +1,5 @@
-package co.edu.konrad.mediokapp.activities;
+package co.edu.konrad.mediokapp.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,7 +13,7 @@ import java.util.ArrayList;
 
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.adapter.GymAdapter;
-import co.edu.konrad.mediokapp.entities.GymExercises;
+import co.edu.konrad.mediokapp.entities.Exercises;
 
 
 public class ExercisesFragment extends Fragment {
@@ -42,14 +40,14 @@ public class ExercisesFragment extends Fragment {
         items.setAdapter(adaptador);
     }
 
-    private ArrayList<GymExercises> GetArrayItems() {
-        ArrayList<GymExercises> listItems = new ArrayList<>();
-        listItems.add(new GymExercises(R.mipmap.ic_abdominales,"Abdominales",getResources().getString(R.string.descAbdominales)));
-        listItems.add(new GymExercises(R.mipmap.ic_brazos,"Brazos",getResources().getString(R.string.descBrazos)));
-        listItems.add(new GymExercises(R.mipmap.ic_espalda,"Espalda",getResources().getString(R.string.descEspalda)));
-        listItems.add(new GymExercises(R.mipmap.ic_hombros,"Hombros",getResources().getString(R.string.descHombros)));
-        listItems.add(new GymExercises(R.mipmap.ic_pecho,"Pecho",getResources().getString(R.string.descPecho)));
-        listItems.add(new GymExercises(R.mipmap.ic_piernas,"Piernas",getResources().getString(R.string.descPiernas)));
+    private ArrayList<Exercises> GetArrayItems() {
+        ArrayList<Exercises> listItems = new ArrayList<>();
+        listItems.add(new Exercises(R.mipmap.ic_abdominales,"Abdominales",getResources().getString(R.string.descAbdominales)));
+        listItems.add(new Exercises(R.mipmap.ic_brazos,"Brazos",getResources().getString(R.string.descBrazos)));
+        listItems.add(new Exercises(R.mipmap.ic_espalda,"Espalda",getResources().getString(R.string.descEspalda)));
+        listItems.add(new Exercises(R.mipmap.ic_hombros,"Hombros",getResources().getString(R.string.descHombros)));
+        listItems.add(new Exercises(R.mipmap.ic_pecho,"Pecho",getResources().getString(R.string.descPecho)));
+        listItems.add(new Exercises(R.mipmap.ic_piernas,"Piernas",getResources().getString(R.string.descPiernas)));
         return listItems;
     }
 }

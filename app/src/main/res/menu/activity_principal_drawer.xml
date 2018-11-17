@@ -25,10 +25,15 @@
         android:iconTint="@color/alice_blue">
         <menu>
             <item
+                android:id="@+id/nav_agregarUsuario"
+                android:iconTint="@color/alice_blue"
+                android:icon="@drawable/ic_add"
+                android:title="Registrar Usuario" />
+            <item
                 android:id="@+id/nav_agregar"
                 android:iconTint="@color/alice_blue"
                 android:icon="@drawable/ic_register"
-                android:title="Registrar " />
+                android:title="Registrar Asistencia" />
             <item
                 android:id="@+id/nav_ver"
                 android:iconTint="@color/alice_blue"

@@ -12,21 +12,21 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import co.edu.konrad.mediokapp.R;
-import co.edu.konrad.mediokapp.entities.Categoria;
+import co.edu.konrad.mediokapp.entities.Asistente;
 
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.CategoriaViewHolder> {
 
-    private ArrayList<Categoria> items;
+    private ArrayList<Asistente> items;
 
-    public UsuarioAdapter(ArrayList<Categoria> items) {
+    public UsuarioAdapter(ArrayList<Asistente> items) {
         this.items = items;
     }
 
-    public ArrayList<Categoria> getItems() {
+    public ArrayList<Asistente> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Categoria> items) {
+    public void setItems(ArrayList<Asistente> items) {
         this.items = items;
     }
 
@@ -40,8 +40,10 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Categori
 
     @Override
     public void onBindViewHolder(@NonNull CategoriaViewHolder holder, int position) {
-        holder.nombre.setText(items.get(position).getNombre());
-        holder.imageView.setImageResource(items.get(position).getImagen());
+        holder.nombre.setText(items.get(position).getNombreAsistente());
+        holder.apellido.setText(items.get(position).getApellidoAsistente());
+        holder.codigo.setText(items.get(position).getCodigoAsistente());
+        //holder.imageView.setImageResource(items.get(position).getImagen());
     }
 
 

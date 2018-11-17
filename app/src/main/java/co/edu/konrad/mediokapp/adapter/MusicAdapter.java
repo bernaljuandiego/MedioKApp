@@ -11,14 +11,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import co.edu.konrad.mediokapp.R;
-import co.edu.konrad.mediokapp.entities.MusicGender;
+import co.edu.konrad.mediokapp.entities.Dances;
 
 public class MusicAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<MusicGender> listItems;
+    private ArrayList<Dances> listItems;
 
-    public MusicAdapter(Context context, ArrayList<MusicGender> listItems) {
+    public MusicAdapter(Context context, ArrayList<Dances> listItems) {
         this.context = context;
         this.listItems = listItems;
     }
@@ -40,7 +40,7 @@ public class MusicAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        MusicGender item = (MusicGender) getItem(position);
+        Dances item = (Dances) getItem(position);
 
         convertView = LayoutInflater.from(context).inflate(R.layout.adapter_music, null);
         ImageView musicGenderImg = (ImageView) convertView.findViewById(R.id.musicGenderImg);
