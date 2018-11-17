@@ -33,7 +33,15 @@ public class ListarFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private DatabaseReference baseDeDatos;
+    private ArrayList<Asistente> asistentes;
+    private ValueEventListener lisener;
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
+    }
 
     @Nullable
     @Override
@@ -45,12 +53,23 @@ public class ListarFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Listar Asistentes");
-        baseDeDatos = FirebaseDatabase.getInstance().getReference("Asistente");
-        baseDeDatos.child("Asistente/Asistente").addValueEventListener(new ValueEventListener() {
+        baseDeDatos = FirebaseDatabase.getInstance().getReference("BaseDatos");
+        asistentes = new ArrayList<>();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        lisener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                GenericTypeIndicator<ArrayList<Asistente>> t = new GenericTypeIndicator<ArrayList<Asistente>>() {};
-                ArrayList<Asistente> yourStringArray = snapshot.getValue(t);
+                asistentes.clear();
+
+                for (DataSnapshot asistenteSnapshot: snapshot.getChildren()) {
+                    Asistente asistenteS = asistenteSnapshot.getValue(Asistente.class);
+                    asistentes.add(asistenteS);
+                }
+
                 items = (RecyclerView) getView().findViewById(R.id.listaCategoria);
                 items.setHasFixedSize(true);
 
@@ -59,16 +78,22 @@ public class ListarFragment extends Fragment {
                 items.setLayoutManager(mLayoutManager);
 
                 // specify an adapter (see also next example)
-                mAdapter = new UsuarioAdapter(yourStringArray);
+                mAdapter = new UsuarioAdapter(asistentes);
                 items.setAdapter(mAdapter);
             }
             @Override
             public void onCancelled(DatabaseError firebaseError) {
                 Log.e("The read failed: " ,firebaseError.getMessage());
             }
-        });
-
-
-
+        };
+        baseDeDatos.child("Usuario").addValueEventListener(lisener);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        baseDeDatos.child("Usuario").removeEventListener(lisener);
+    }
+
+
 }

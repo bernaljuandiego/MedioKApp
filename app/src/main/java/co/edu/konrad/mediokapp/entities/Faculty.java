@@ -9,6 +9,9 @@ public class Faculty {
         this.nameFaculty = nameFaculty;
     }
 
+    public Faculty() {
+    }
+
     public int getIdFaculty() {
         return idFaculty;
     }

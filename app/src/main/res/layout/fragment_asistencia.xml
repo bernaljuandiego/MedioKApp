@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AgregarUsuarioFragment"
+    tools:context=".fragments.AsistenciaFragment"
     android:background="@drawable/fondo">
 
     <!-- TODO: Update blank fragment layout -->
@@ -15,7 +15,7 @@
         android:layout_margin="20dp"
         android:padding="20dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="7dp" >
+        app:cardElevation="7dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="8"
+                android:layout_weight="7"
                 android:orientation="horizontal"
                 android:padding="15dp">
 
@@ -41,14 +41,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Registro de Usuario"
+                    android:text="Registro Asistencia"
                     app:autoSizeTextType="uniform" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:orientation="horizontal"
                 android:padding="15dp">
 
@@ -58,23 +58,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/nombreRegistro"
+                    <TextView
+                        android:id="@+id/textView6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ems="10"
-                        android:hint="Nombre"
-                        android:inputType="text" />
-
-                    <EditText
-                        android:id="@+id/apellidoRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ems="10"
-                        android:hint="Apellido"
-                        android:inputType="text" />
+                        android:text="Ingrese su codigo"
+                        android:textSize="10sp" />
 
                     <EditText
                         android:id="@+id/codigoRegistro"
@@ -85,50 +74,15 @@
                         android:hint="Codigo"
                         android:inputType="number" />
 
-                    <EditText
-                        android:id="@+id/cedulaRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ems="10"
-                        android:hint="Cedula"
-                        android:inputType="number" />
-
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/textView7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Carrera"
+                        android:text="Tipo de uso"
                         android:textSize="10sp" />
 
                     <Spinner
                         android:id="@+id/carreraRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tipo de usuario"
-                        android:textSize="10sp" />
-
-                    <Spinner
-                        android:id="@+id/tipoUsuarioRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Jornada"
-                        android:textSize="10sp" />
-
-                    <Spinner
-                        android:id="@+id/jornadaRegistro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp" />

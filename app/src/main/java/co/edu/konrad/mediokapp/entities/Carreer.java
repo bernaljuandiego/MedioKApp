@@ -11,6 +11,14 @@ public class Carreer {
         this.faculty = faculty;
     }
 
+    @Override
+    public String toString() {
+        return nameCarreer + " / " + faculty.getNameFaculty();
+    }
+
+    public Carreer() {
+    }
+
     public int getIdCarreer() {
         return idCarreer;
     }

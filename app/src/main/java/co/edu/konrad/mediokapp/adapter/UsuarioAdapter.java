@@ -3,6 +3,7 @@ package co.edu.konrad.mediokapp.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Categori
     public void onBindViewHolder(@NonNull CategoriaViewHolder holder, int position) {
         holder.nombre.setText(items.get(position).getNombreAsistente());
         holder.apellido.setText(items.get(position).getApellidoAsistente());
-        holder.codigo.setText(items.get(position).getCodigoAsistente());
+        holder.codigo.setText(Integer.toString(items.get(position).getCodigoAsistente()) +" / "+ Integer.toString(items.get(position).getCedulaAsistente()));
         //holder.imageView.setImageResource(items.get(position).getImagen());
     }
 

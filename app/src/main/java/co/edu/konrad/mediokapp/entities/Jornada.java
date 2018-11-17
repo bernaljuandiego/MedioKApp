@@ -9,6 +9,9 @@ public class Jornada {
         this.nombreJornada = nombreJornada;
     }
 
+    public Jornada() {
+    }
+
     public int getIdJornada() {
         return idJornada;
     }
@@ -23,5 +26,10 @@ public class Jornada {
 
     public void setNombreJornada(String nombreJornada) {
         this.nombreJornada = nombreJornada;
+    }
+
+    @Override
+    public String toString() {
+        return nombreJornada;
     }
 }

@@ -25,14 +25,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:divider="#000000"
                 android:dividerPadding="10dp"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
@@ -46,8 +44,7 @@
                     android:layout_height="match_parent"
 
                     android:layout_weight="3"
-                    app:srcCompat="@mipmap/ic_launcher_round"
-                    tools:src="@tools:sample/avatars[2]" />
+                    android:src="@drawable/mediokapp_logo" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -56,35 +53,69 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoText="false"
+                        android:paddingLeft="5dp"
+                        android:text="Nombre"
+                        android:textSize="8sp"
+                        app:autoSizeTextType="none" />
+
+                    <TextView
                         android:id="@+id/nombreCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autoText="false"
-                        android:padding="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="3dp"
                         android:text="TextView"
                         android:textStyle="bold"
                         app:autoSizeTextType="uniform"
                         tools:text="@tools:sample/cities" />
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoText="false"
+                        android:paddingLeft="5dp"
+                        android:text="Apellido"
+                        android:textSize="8sp"
+                        app:autoSizeTextType="none" />
+
+                    <TextView
                         android:id="@+id/apellidoCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autoText="false"
-                        android:padding="5dp"
-                        android:paddingBottom="8dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="3dp"
                         android:text="TextView"
                         android:textStyle="bold"
                         app:autoSizeTextType="uniform"
                         tools:text="@tools:sample/date/hhmm" />
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoText="false"
+                        android:paddingLeft="5dp"
+                        android:text="Codigo / Cedula"
+                        android:textSize="8sp"
+                        app:autoSizeTextType="none" />
+
+                    <TextView
                         android:id="@+id/codigoCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autoText="false"
-                        android:padding="5dp"
-                        android:paddingBottom="8dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="3dp"
                         android:text="TextView"
                         android:textStyle="bold"
                         app:autoSizeTextType="uniform" />
@@ -102,24 +133,46 @@
                 android:paddingBottom="10dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:paddingLeft="5dp"
+                    android:text="Fecha"
+                    android:textSize="8sp"
+                    app:autoSizeTextType="none" />
+
+                <TextView
                     android:id="@+id/fechaCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:padding="5dp"
-                    android:paddingBottom="8dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="3dp"
                     android:text="TextView"
                     android:textStyle="bold"
                     app:autoSizeTextType="uniform"
                     tools:text="@tools:sample/lorem" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:paddingLeft="5dp"
+                    android:text="uso"
+                    android:textSize="8sp"
+                    app:autoSizeTextType="none" />
+
+                <TextView
                     android:id="@+id/usoCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:padding="5dp"
-                    android:paddingBottom="8dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="3dp"
                     android:text="TextView"
                     android:textStyle="bold"
                     app:autoSizeTextType="uniform"

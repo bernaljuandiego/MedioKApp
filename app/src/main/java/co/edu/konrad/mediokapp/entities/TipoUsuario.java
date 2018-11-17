@@ -9,6 +9,9 @@ public class TipoUsuario {
         this.nombreTipoUsuario = nombreTipoUsuario;
     }
 
+    public TipoUsuario() {
+    }
+
     public int getIdTipoUsuario() {
         return idTipoUsuario;
     }
@@ -23,5 +26,10 @@ public class TipoUsuario {
 
     public void setNombreTipoUsuario(String nombreTipoUsuario) {
         this.nombreTipoUsuario = nombreTipoUsuario;
+    }
+
+    @Override
+    public String toString() {
+        return  nombreTipoUsuario;
     }
 }

@@ -20,6 +20,23 @@ public class Asistente {
         this.carreer = carreer;
     }
 
+    @Override
+    public String toString() {
+        return "Asistente{" +
+                "cedulaAsistente=" + cedulaAsistente +
+                ", codigoAsistente=" + codigoAsistente +
+                ", nombreAsistente='" + nombreAsistente + '\'' +
+                ", apellidoAsistente='" + apellidoAsistente + '\'' +
+                ", tipoUsuario=" + tipoUsuario +
+                ", jornada=" + jornada +
+                ", carreer=" + carreer +
+                '}';
+    }
+
+    public Asistente() {
+
+    }
+
     public int getCedulaAsistente() {
         return cedulaAsistente;
     }
