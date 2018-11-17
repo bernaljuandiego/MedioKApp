@@ -1,13 +1,17 @@
 package co.edu.konrad.mediokapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.konrad.mediokapp.R;
+import co.edu.konrad.mediokapp.activities.GoogleLoginActivity;
+import co.edu.konrad.mediokapp.activities.SplashActivity;
 import co.edu.konrad.mediokapp.entities.Asistente;
 import co.edu.konrad.mediokapp.entities.Carreer;
 import co.edu.konrad.mediokapp.entities.Faculty;
@@ -111,6 +117,7 @@ public class AgregarUsuarioFragment extends Fragment {
 
     @Override
     public void onResume() {
+        StartAnimations();
         super.onResume();
         lisenerTipoUsuario = new ValueEventListener() {
             @Override
@@ -178,4 +185,33 @@ public class AgregarUsuarioFragment extends Fragment {
         baseDeDatos.child("Carreer").removeEventListener(lisenerTipoUsuario);
         baseDeDatos.child("TipoUsuario").removeEventListener(lisenerTipoUsuario);
     }
+
+    private void StartAnimations() {
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.alpha);
+        anim = AnimationUtils.loadAnimation(getContext(), R.anim.translate);
+        anim.reset();
+        CardView l=(CardView) getView().findViewById(R.id.card);
+        l.clearAnimation();
+        l.startAnimation(anim);
+
+        Thread splashTread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    int waited = 0;
+                    // SplashActivity screen pause time
+                    while (waited < 1000) {
+                        sleep(100);
+                        waited += 100;
+                    }
+                } catch (InterruptedException e) {
+                } finally {
+                }
+
+            }
+        };
+        splashTread.start();
+
+    }
+
 }

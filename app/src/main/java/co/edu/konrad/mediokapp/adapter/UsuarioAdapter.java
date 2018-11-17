@@ -13,21 +13,22 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import co.edu.konrad.mediokapp.R;
+import co.edu.konrad.mediokapp.entities.Asistencia;
 import co.edu.konrad.mediokapp.entities.Asistente;
 
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.CategoriaViewHolder> {
 
-    private ArrayList<Asistente> items;
+    private ArrayList<Asistencia> items;
 
-    public UsuarioAdapter(ArrayList<Asistente> items) {
+    public UsuarioAdapter(ArrayList<Asistencia> items) {
         this.items = items;
     }
 
-    public ArrayList<Asistente> getItems() {
+    public ArrayList<Asistencia> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Asistente> items) {
+    public void setItems(ArrayList<Asistencia> items) {
         this.items = items;
     }
 
@@ -41,9 +42,11 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Categori
 
     @Override
     public void onBindViewHolder(@NonNull CategoriaViewHolder holder, int position) {
-        holder.nombre.setText(items.get(position).getNombreAsistente());
-        holder.apellido.setText(items.get(position).getApellidoAsistente());
-        holder.codigo.setText(Integer.toString(items.get(position).getCodigoAsistente()) +" / "+ Integer.toString(items.get(position).getCedulaAsistente()));
+        holder.nombre.setText(items.get(position).getAsistente().getNombreAsistente());
+        holder.apellido.setText(items.get(position).getAsistente().getApellidoAsistente());
+        holder.codigo.setText(Integer.toString(items.get(position).getAsistente().getCodigoAsistente()) +" / "+ Integer.toString(items.get(position).getAsistente().getCedulaAsistente()));
+        holder.fecha.setText(items.get(position).getFecha());
+        holder.uso.setText(items.get(position).getUso());
         //holder.imageView.setImageResource(items.get(position).getImagen());
     }
 

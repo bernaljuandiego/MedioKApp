@@ -4,13 +4,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,24 +29,17 @@ import java.util.ArrayList;
 
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.adapter.UsuarioAdapter;
+import co.edu.konrad.mediokapp.entities.Asistencia;
 import co.edu.konrad.mediokapp.entities.Asistente;
 
 public class ListarFragment extends Fragment {
     private RecyclerView items;
-    private UsuarioAdapter adaptador;
-    private Button btnVolverCatalogo;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private DatabaseReference baseDeDatos;
-    private ArrayList<Asistente> asistentes;
+    private ArrayList<Asistencia> asistentes;
     private ValueEventListener lisener;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-
-    }
 
     @Nullable
     @Override
@@ -60,13 +58,14 @@ public class ListarFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        StartAnimations();
         lisener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 asistentes.clear();
 
                 for (DataSnapshot asistenteSnapshot: snapshot.getChildren()) {
-                    Asistente asistenteS = asistenteSnapshot.getValue(Asistente.class);
+                    Asistencia asistenteS = asistenteSnapshot.getValue(Asistencia.class);
                     asistentes.add(asistenteS);
                 }
 
@@ -86,14 +85,41 @@ public class ListarFragment extends Fragment {
                 Log.e("The read failed: " ,firebaseError.getMessage());
             }
         };
-        baseDeDatos.child("Usuario").addValueEventListener(lisener);
+        baseDeDatos.child("Asistencia").addValueEventListener(lisener);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        baseDeDatos.child("Usuario").removeEventListener(lisener);
+        baseDeDatos.child("Asistencia").removeEventListener(lisener);
     }
 
 
+    private void StartAnimations() {
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.alpha);
+        anim = AnimationUtils.loadAnimation(getContext(), R.anim.translate);
+        anim.reset();
+        RelativeLayout l=(RelativeLayout) getView().findViewById(R.id.card);
+        l.clearAnimation();
+        l.startAnimation(anim);
+
+        Thread splashTread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    int waited = 0;
+                    // SplashActivity screen pause time
+                    while (waited < 1000) {
+                        sleep(100);
+                        waited += 100;
+                    }
+                } catch (InterruptedException e) {
+                } finally {
+                }
+
+            }
+        };
+        splashTread.start();
+
+    }
 }

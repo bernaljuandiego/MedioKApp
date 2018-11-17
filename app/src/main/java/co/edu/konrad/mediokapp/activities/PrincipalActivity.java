@@ -31,6 +31,7 @@ import com.google.android.gms.common.api.Status;
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.asynctasks.GetAccountImage;
 import co.edu.konrad.mediokapp.fragments.AgregarUsuarioFragment;
+import co.edu.konrad.mediokapp.fragments.AsistenciaFragment;
 import co.edu.konrad.mediokapp.fragments.ExercisesFragment;
 import co.edu.konrad.mediokapp.fragments.HomeFragment;
 import co.edu.konrad.mediokapp.fragments.ListarFragment;
@@ -165,7 +166,7 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
                 fragment = new ListarFragment();
                 break;
             case R.id.nav_agregar:
-                fragment = new MusicFragment();
+                fragment = new AsistenciaFragment();
                 break;
             case R.id.nav_agregarUsuario:
                 fragment = new AgregarUsuarioFragment();
