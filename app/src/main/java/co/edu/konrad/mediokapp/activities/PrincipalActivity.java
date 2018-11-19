@@ -34,6 +34,7 @@ import co.edu.konrad.mediokapp.fragments.AgregarUsuarioFragment;
 import co.edu.konrad.mediokapp.fragments.AsistenciaFragment;
 import co.edu.konrad.mediokapp.fragments.ExercisesFragment;
 import co.edu.konrad.mediokapp.fragments.HomeFragment;
+import co.edu.konrad.mediokapp.fragments.ListadoFragment;
 import co.edu.konrad.mediokapp.fragments.ListarFragment;
 import co.edu.konrad.mediokapp.fragments.MusicFragment;
 
@@ -167,6 +168,9 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
                 break;
             case R.id.nav_agregar:
                 fragment = new AsistenciaFragment();
+                break;
+            case R.id.nav_listar_usuarios:
+                fragment = new ListadoFragment();
                 break;
             case R.id.nav_agregarUsuario:
                 fragment = new AgregarUsuarioFragment();

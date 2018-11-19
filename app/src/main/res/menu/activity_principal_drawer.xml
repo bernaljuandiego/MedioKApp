@@ -30,6 +30,11 @@
                 android:icon="@drawable/ic_add"
                 android:title="Registrar Usuario" />
             <item
+                android:id="@+id/nav_listar_usuarios"
+                android:icon="@drawable/ic_list"
+                android:iconTint="@color/alice_blue"
+                android:title="Listar Usuarios" />
+            <item
                 android:id="@+id/nav_agregar"
                 android:iconTint="@color/alice_blue"
                 android:icon="@drawable/ic_register"
