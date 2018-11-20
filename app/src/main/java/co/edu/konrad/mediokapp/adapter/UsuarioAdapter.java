@@ -44,7 +44,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioH
     @Override
     public void onBindViewHolder(@NonNull UsuarioHolder holder, int position) {
         holder.nombre.setText(items.get(position).getAsistente().getNombreAsistente()+" "+items.get(position).getAsistente().getApellidoAsistente());
-        holder.codigo.setText(Integer.toString(items.get(position).getAsistente().getCodigoAsistente()) +" / "+ Integer.toString(items.get(position).getAsistente().getCedulaAsistente()));
+        holder.codigo.setText(items.get(position).getAsistente().getCodigoAsistente() +" / "+ Integer.toString(items.get(position).getAsistente().getCedulaAsistente()));
         holder.fecha.setText(items.get(position).getFecha());
         holder.uso.setText(items.get(position).getUso());
         //holder.imageView.setImageResource(items.get(position).getImagen());

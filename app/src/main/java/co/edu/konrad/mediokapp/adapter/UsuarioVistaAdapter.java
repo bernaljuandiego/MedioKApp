@@ -47,7 +47,7 @@ public class UsuarioVistaAdapter extends RecyclerView.Adapter<UsuarioVistaAdapte
     @Override
     public void onBindViewHolder(@NonNull UsuarioViewHolder holder, int position) {
         holder.nombre.setText(items.get(position).getNombreAsistente()+" "+items.get(position).getApellidoAsistente());
-        holder.codigo.setText(Integer.toString(items.get(position).getCodigoAsistente()) +" / "+ Integer.toString(items.get(position).getCedulaAsistente()));
+        holder.codigo.setText(items.get(position).getCodigoAsistente() +" / "+ Integer.toString(items.get(position).getCedulaAsistente()));
         holder.contenedorAdapter.removeView(holder.fecha);
         holder.contenedorAdapter.removeView(holder.txtfecha);
         holder.contenedorAdapter.removeView(holder.uso);

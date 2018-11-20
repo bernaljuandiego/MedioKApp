@@ -63,7 +63,7 @@
                         android:id="@+id/textView6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ingrese su codigo"
+                        android:text="Ingrese su cedula"
                         android:textSize="10sp" />
 
                     <EditText
@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:ems="10"
-                        android:hint="Codigo"
+                        android:hint="Cedula"
                         android:inputType="number" />
 
                     <TextView

@@ -48,6 +48,7 @@ public class AsistenciaFragment extends Fragment {
     private Button botonRegistro;
     private DatabaseReference baseDeDatos;
     private List<String> listJornada;
+    private TextWatcher lisener;
 
     @Nullable
     @Override
@@ -73,63 +74,8 @@ public class AsistenciaFragment extends Fragment {
                 registrarEstudiante();
             }
         });
-
-        codigoRegistro.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                ocultarCarta();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                try {
-                    int codigo = Integer.parseInt(codigoRegistro.getText().toString());
-                    baseDeDatos.child("Usuario").orderByChild("codigoAsistente")
-                            .equalTo(codigo)
-                            .limitToFirst(1)
-                            .addChildEventListener(new ChildEventListener() {
-                                @Override
-                                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                                    Asistente asistente = dataSnapshot.getValue(Asistente.class);
-                                    actualizarCarta(asistente);
-                                    mostrarCarta();
-                                }
-
-                                @Override
-                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                                }
-
-                                @Override
-                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-                                }
-
-                                @Override
-                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-                } catch (NumberFormatException ex) {
-                    ocultarCarta();
-                    Toast.makeText(getContext(), "Ingrese un codigo!", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
         listJornada.add(new String("Gimnasio"));
         listJornada.add(new String("Salon de danza"));
-
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, listJornada);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -142,7 +88,7 @@ public class AsistenciaFragment extends Fragment {
     public void registrarEstudiante() {
         try {
             int codigo = Integer.parseInt(codigoRegistro.getText().toString());
-            baseDeDatos.child("Usuario").orderByChild("codigoAsistente")
+            baseDeDatos.child("Usuario").orderByChild("cedulaAsistente")
                     .equalTo(codigo)
                     .limitToFirst(1)
                     .addChildEventListener(new ChildEventListener() {
@@ -216,13 +162,12 @@ public class AsistenciaFragment extends Fragment {
         txtuso = (TextView) getView().findViewById(R.id.usoAdapter);
         contenedorAdapter = (LinearLayout) getView().findViewById(R.id.contenedorAdapter);
         nombre.setText(asistente.getNombreAsistente() + " "+ asistente.getApellidoAsistente());
-        codigo.setText(asistente.getCodigoAsistente() + " "+ asistente.getCedulaAsistente());
+        codigo.setText(asistente.getCodigoAsistente() + " / "+ asistente.getCedulaAsistente());
         contenedorAdapter.removeView(fecha);
         contenedorAdapter.removeView(txtfecha);
         contenedorAdapter.removeView(uso);
         contenedorAdapter.removeView(txtuso);
     }
-
 
     private void StartAnimations() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.alpha);
@@ -256,5 +201,64 @@ public class AsistenciaFragment extends Fragment {
     public void onResume() {
         super.onResume();
         StartAnimations();
+        lisener = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ocultarCarta();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                try {
+                    int codigo = Integer.parseInt(codigoRegistro.getText().toString());
+                    baseDeDatos.child("Usuario").orderByChild("cedulaAsistente")
+                            .equalTo(codigo)
+                            .limitToFirst(1)
+                            .addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                    Asistente asistente = dataSnapshot.getValue(Asistente.class);
+                                    actualizarCarta(asistente);
+                                    mostrarCarta();
+                                }
+
+                                @Override
+                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                                }
+
+                                @Override
+                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                } catch (NumberFormatException ex) {
+                    ocultarCarta();
+                    Toast.makeText(getContext(), "Ingrese un codigo!", Toast.LENGTH_LONG).show();
+                }
+            }
+        };
+        codigoRegistro.addTextChangedListener(lisener);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        codigoRegistro.removeTextChangedListener(lisener);
     }
 }

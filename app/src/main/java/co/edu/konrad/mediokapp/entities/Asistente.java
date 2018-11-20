@@ -3,14 +3,14 @@ package co.edu.konrad.mediokapp.entities;
 
 public class Asistente {
     private int cedulaAsistente;
-    private int codigoAsistente;
+    private String codigoAsistente;
     private String nombreAsistente;
     private String apellidoAsistente;
     private TipoUsuario tipoUsuario;
     private Jornada jornada;
     private Carreer carreer;
 
-    public Asistente(int cedulaAsistente, int codigoAsistente, String nombreAsistente, String apellidoAsistente, TipoUsuario tipoUsuario, Jornada jornada, Carreer carreer) {
+    public Asistente(int cedulaAsistente, String codigoAsistente, String nombreAsistente, String apellidoAsistente, TipoUsuario tipoUsuario, Jornada jornada, Carreer carreer) {
         this.cedulaAsistente = cedulaAsistente;
         this.codigoAsistente = codigoAsistente;
         this.nombreAsistente = nombreAsistente;
@@ -18,6 +18,14 @@ public class Asistente {
         this.tipoUsuario = tipoUsuario;
         this.jornada = jornada;
         this.carreer = carreer;
+    }
+
+    public Asistente(int cedulaAsistente, String nombreAsistente, String apellidoAsistente, TipoUsuario tipoUsuario) {
+        this.cedulaAsistente = cedulaAsistente;
+        this.nombreAsistente = nombreAsistente;
+        this.apellidoAsistente = apellidoAsistente;
+        this.tipoUsuario = tipoUsuario;
+        this.codigoAsistente = "-";
     }
 
     @Override
@@ -45,11 +53,11 @@ public class Asistente {
         this.cedulaAsistente = cedulaAsistente;
     }
 
-    public int getCodigoAsistente() {
+    public String getCodigoAsistente() {
         return codigoAsistente;
     }
 
-    public void setCodigoAsistente(int codigoAsistente) {
+    public void setCodigoAsistente(String codigoAsistente) {
         this.codigoAsistente = codigoAsistente;
     }
 
