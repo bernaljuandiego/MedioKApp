@@ -85,7 +85,7 @@ public class ListarFragment extends Fragment {
                 Log.e("The read failed: " ,firebaseError.getMessage());
             }
         };
-        baseDeDatos.child("Asistencia").addValueEventListener(lisener);
+        baseDeDatos.child("Asistencia").orderByValue().addValueEventListener(lisener);
     }
 
     @Override

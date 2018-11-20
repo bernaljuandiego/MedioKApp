@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -29,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.entities.Asistencia;
 import co.edu.konrad.mediokapp.entities.Asistente;
@@ -68,16 +74,72 @@ public class AsistenciaFragment extends Fragment {
             }
         });
 
+        codigoRegistro.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ocultarCarta();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                try {
+                    int codigo = Integer.parseInt(codigoRegistro.getText().toString());
+                    baseDeDatos.child("Usuario").orderByChild("codigoAsistente")
+                            .equalTo(codigo)
+                            .limitToFirst(1)
+                            .addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                    Asistente asistente = dataSnapshot.getValue(Asistente.class);
+                                    actualizarCarta(asistente);
+                                    mostrarCarta();
+                                }
+
+                                @Override
+                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                                }
+
+                                @Override
+                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                } catch (NumberFormatException ex) {
+                    ocultarCarta();
+                    Toast.makeText(getContext(), "Ingrese un codigo!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         listJornada.add(new String("Gimnasio"));
         listJornada.add(new String("Salon de danza"));
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_spinner_item, listJornada);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, listJornada);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         jornadaRegistro.setAdapter(adapter);
 
+
+
     }
 
-    public void registrarEstudiante(){
+    public void registrarEstudiante() {
         try {
             int codigo = Integer.parseInt(codigoRegistro.getText().toString());
             baseDeDatos.child("Usuario").orderByChild("codigoAsistente")
@@ -89,11 +151,11 @@ public class AsistenciaFragment extends Fragment {
                             String jornada = (String) jornadaRegistro.getSelectedItem();
                             Asistente asistente = dataSnapshot.getValue(Asistente.class);
                             Date date = new Date();
-                            Date newDate = new Date(date.getTime() + (604800000L * 2) + (24 * 60 * 60));
-                            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+                            Date newDate = new Date(date.getTime());
+                            SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd HH:mm");
                             String stringdate = dt.format(newDate);
                             String id = baseDeDatos.push().getKey();
-                            Asistencia nuevoRegistro = new Asistencia(asistente,stringdate,jornada);
+                            Asistencia nuevoRegistro = new Asistencia(asistente, stringdate, jornada);
                             baseDeDatos.child("Asistencia").child(id).setValue(nuevoRegistro);
                             Toast.makeText(getContext(), "Agregado Correctamente", Toast.LENGTH_LONG).show();
                             codigoRegistro.setText("");
@@ -119,10 +181,46 @@ public class AsistenciaFragment extends Fragment {
 
                         }
                     });
-            Toast.makeText(getContext(), "Usuario no registrado!", Toast.LENGTH_LONG).show();
-        } catch (NumberFormatException ex){
-            Toast.makeText(getContext(), "INGRESE UN CODIGO VALIDO!", Toast.LENGTH_LONG).show();
+
+        } catch (NumberFormatException ex) {
+
         }
+    }
+
+    private void ocultarCarta() {
+        LinearLayout carta = (LinearLayout) getView().findViewById(R.id.tarjetaUsuario);
+        carta.setVisibility(View.INVISIBLE);
+        botonRegistro.setVisibility(View.INVISIBLE);
+    }
+
+    private void mostrarCarta() {
+        LinearLayout carta = (LinearLayout) getView().findViewById(R.id.tarjetaUsuario);
+        carta.setVisibility(View.VISIBLE);
+        botonRegistro.setVisibility(View.VISIBLE);
+    }
+
+    private void actualizarCarta(Asistente asistente) {
+        TextView nombre;
+        TextView codigo;
+        ImageView imageView;
+        TextView fecha;
+        TextView uso;
+        TextView txtfecha;
+        TextView txtuso;
+        LinearLayout contenedorAdapter;
+        nombre = (TextView) getView().findViewById(R.id.nombreCard);
+        codigo = (TextView) getView().findViewById(R.id.codigoCard);
+        fecha = (TextView) getView().findViewById(R.id.fechaCard);
+        txtfecha = (TextView) getView().findViewById(R.id.fechaAdapter);
+        uso = (TextView) getView().findViewById(R.id.usoCard);
+        txtuso = (TextView) getView().findViewById(R.id.usoAdapter);
+        contenedorAdapter = (LinearLayout) getView().findViewById(R.id.contenedorAdapter);
+        nombre.setText(asistente.getNombreAsistente() + " "+ asistente.getApellidoAsistente());
+        codigo.setText(asistente.getCodigoAsistente() + " "+ asistente.getCedulaAsistente());
+        contenedorAdapter.removeView(fecha);
+        contenedorAdapter.removeView(txtfecha);
+        contenedorAdapter.removeView(uso);
+        contenedorAdapter.removeView(txtuso);
     }
 
 
@@ -130,7 +228,7 @@ public class AsistenciaFragment extends Fragment {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.alpha);
         anim = AnimationUtils.loadAnimation(getContext(), R.anim.translate);
         anim.reset();
-        CardView l=(CardView) getView().findViewById(R.id.card);
+        CardView l = (CardView) getView().findViewById(R.id.card);
         l.clearAnimation();
         l.startAnimation(anim);
 

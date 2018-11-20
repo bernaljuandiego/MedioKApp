@@ -33,6 +33,7 @@ public class ExercisesFragment extends Fragment {
         getActivity().setTitle("Ejercicios Musculares");
         items = (ListView) getView().findViewById(R.id.lvItems);
         adaptador = new GymAdapter(getContext(), GetArrayItems());
+        items.setClickable(false);
 
         items.setAdapter(adaptador);items = (ListView) getView().findViewById(R.id.lvItems);
         adaptador = new GymAdapter(getContext(), GetArrayItems());

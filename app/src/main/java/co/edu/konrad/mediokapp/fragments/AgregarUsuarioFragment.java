@@ -6,7 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +19,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,6 +59,10 @@ public class AgregarUsuarioFragment extends Fragment {
     private ValueEventListener lisenerTipoUsuario;
     private ValueEventListener lisenerCarrera;
     private ValueEventListener lisenerJornada;
+    private TextView titulo;
+    private String nombreRegistroAux;
+    private String apellidoRegistroAux;
+    private String cedulaRegistroAux;
 
     @Nullable
     @Override
@@ -72,6 +81,7 @@ public class AgregarUsuarioFragment extends Fragment {
         listCarrera = new ArrayList<>();
         listJornada = new ArrayList<>();
 
+        titulo = (TextView) getView().findViewById(R.id.titulo);
         nombreRegistro = (EditText) getView().findViewById(R.id.nombreRegistro);
         apellidoRegistro = (EditText) getView().findViewById(R.id.apellidoRegistro);
         codigoRegistro = (EditText) getView().findViewById(R.id.codigoRegistro);
@@ -87,6 +97,83 @@ public class AgregarUsuarioFragment extends Fragment {
             }
         });
 
+        nombreRegistroAux = "";
+        apellidoRegistroAux = "";
+        cedulaRegistroAux = "";
+
+        codigoRegistro.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                try {
+                    int codigo = Integer.parseInt(codigoRegistro.getText().toString());
+                    baseDeDatos.child("Usuario").orderByChild("codigoAsistente")
+                            .equalTo(codigo)
+                            .limitToFirst(1)
+                            .addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                                    final Asistente asistente = dataSnapshot.getValue(Asistente.class);
+                                    actualizarCampos(asistente);
+                                }
+
+                                @Override
+                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                                }
+
+                                @Override
+                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                } catch (NumberFormatException ex) {
+                    dejarComoEstabanCampos();
+                }
+            }
+        });
+    }
+
+    private void actualizarCampos(Asistente asistente) {
+        nombreRegistroAux = nombreRegistro.getText().toString();
+        apellidoRegistroAux = apellidoRegistro.getText().toString();
+        cedulaRegistroAux = cedulaRegistro.getText().toString();
+
+        titulo.setText("Edición de Usuario");
+        botonRegistro.setText("EDITAR!");
+        botonRegistro.setVisibility(View.VISIBLE);
+
+        nombreRegistro.setText(asistente.getNombreAsistente());
+        apellidoRegistro.setText(asistente.getApellidoAsistente());
+        cedulaRegistro.setText(Integer.toString(asistente.getCedulaAsistente()));
+    }
+
+    private void dejarComoEstabanCampos() {
+        botonRegistro.setText("REGISTRAR!");
+        titulo.setText("Registro de usuarios");
+        botonRegistro.setVisibility(View.VISIBLE);
+        nombreRegistro.setText(nombreRegistroAux);
+        apellidoRegistro.setText(apellidoRegistroAux);
+        cedulaRegistro.setText(cedulaRegistroAux);
     }
 
     public void registrarEstudiante(){
@@ -102,17 +189,22 @@ public class AgregarUsuarioFragment extends Fragment {
                 String id = baseDeDatos.push().getKey();
                 Asistente nuevoRegistro = new Asistente(cedula, codigo, nombre, apellido, tipoUsuario, jornada, carrera);
                 baseDeDatos.child("Usuario").child(Integer.toString(codigo)).setValue(nuevoRegistro);
-                Toast.makeText(getContext(), "Agregado Correctamente", Toast.LENGTH_LONG).show();
-                nombreRegistro.setText("");
-                apellidoRegistro.setText("");
-                codigoRegistro.setText("");
-                cedulaRegistro.setText("");
+                Toast.makeText(getContext(), "Exito!", Toast.LENGTH_LONG).show();
+                vaciarCampos();
             } else {
                 Toast.makeText(getContext(), "Completar los campos!", Toast.LENGTH_LONG).show();
             }
         } catch (NumberFormatException ex){
             Toast.makeText(getContext(), "llenar los campos numericos", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void vaciarCampos() {
+        titulo.setText("Registro de usuarios");
+        nombreRegistro.setText("");
+        apellidoRegistro.setText("");
+        codigoRegistro.setText("");
+        cedulaRegistro.setText("");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package co.edu.konrad.mediokapp;
+package co.edu.konrad.mediokapp.activities;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.activities.GoogleLoginActivity;
 
 public class LostConnectionActivity extends AppCompatActivity {

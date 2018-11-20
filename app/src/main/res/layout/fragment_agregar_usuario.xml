@@ -48,7 +48,7 @@
                             android:src="@drawable/logou" />
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/titulo"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -61,24 +61,6 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:padding="20dp">
-
-                        <EditText
-                            android:id="@+id/nombreRegistro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:ems="10"
-                            android:hint="Nombre"
-                            android:inputType="text" />
-
-                        <EditText
-                            android:id="@+id/apellidoRegistro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:ems="10"
-                            android:hint="Apellido"
-                            android:inputType="text" />
 
                         <EditText
                             android:id="@+id/codigoRegistro"
@@ -97,6 +79,24 @@
                             android:ems="10"
                             android:hint="Cedula"
                             android:inputType="number" />
+
+                        <EditText
+                            android:id="@+id/nombreRegistro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:ems="10"
+                            android:hint="Nombre"
+                            android:inputType="text" />
+
+                        <EditText
+                            android:id="@+id/apellidoRegistro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:ems="10"
+                            android:hint="Apellido"
+                            android:inputType="text" />
 
                         <TextView
                             android:id="@+id/textView2"

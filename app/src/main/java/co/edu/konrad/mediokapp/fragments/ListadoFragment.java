@@ -59,7 +59,7 @@ public class ListadoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Listar Asistentes");
+        getActivity().setTitle("Listar Usuarios");
         baseDeDatos = FirebaseDatabase.getInstance().getReference("BaseDatos");
         asistentes = new ArrayList<>();
     }

@@ -34,7 +34,6 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-import co.edu.konrad.mediokapp.LostConnectionActivity;
 import co.edu.konrad.mediokapp.R;
 import co.edu.konrad.mediokapp.asynctasks.GetAccountImage;
 import co.edu.konrad.mediokapp.fragments.AgregarUsuarioFragment;

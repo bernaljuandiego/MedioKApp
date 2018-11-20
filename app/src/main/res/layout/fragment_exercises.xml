@@ -36,6 +36,8 @@
             android:layout_height="match_parent"
             android:clickable="false"
             android:divider="#000000"
+            android:listSelector="@android:color/transparent"
+            android:longClickable="false"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
 

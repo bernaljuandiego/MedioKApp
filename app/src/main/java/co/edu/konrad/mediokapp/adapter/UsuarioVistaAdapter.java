@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class UsuarioVistaAdapter extends RecyclerView.Adapter<UsuarioVistaAdapte
         this.items = items;
     }
 
+
     public ArrayList<Asistente> getItems() {
         return items;
     }
@@ -30,6 +32,7 @@ public class UsuarioVistaAdapter extends RecyclerView.Adapter<UsuarioVistaAdapte
     public void setItems(ArrayList<Asistente> items) {
         this.items = items;
     }
+
 
     @NonNull
     @Override
@@ -43,11 +46,12 @@ public class UsuarioVistaAdapter extends RecyclerView.Adapter<UsuarioVistaAdapte
 
     @Override
     public void onBindViewHolder(@NonNull UsuarioViewHolder holder, int position) {
-        holder.nombre.setText(items.get(position).getNombreAsistente());
-        holder.apellido.setText(items.get(position).getApellidoAsistente());
+        holder.nombre.setText(items.get(position).getNombreAsistente()+" "+items.get(position).getApellidoAsistente());
         holder.codigo.setText(Integer.toString(items.get(position).getCodigoAsistente()) +" / "+ Integer.toString(items.get(position).getCedulaAsistente()));
-        holder.fecha.setText(items.get(position).getCarreer().getNameCarreer() + "/" + items.get(position).getCarreer().getFaculty().getNameFaculty());
-        holder.uso.setText(items.get(position).getTipoUsuario().getNombreTipoUsuario());
+        holder.contenedorAdapter.removeView(holder.fecha);
+        holder.contenedorAdapter.removeView(holder.txtfecha);
+        holder.contenedorAdapter.removeView(holder.uso);
+        holder.contenedorAdapter.removeView(holder.txtuso);
         //holder.imageView.setImageResource(items.get(position).getImagen());
     }
 
@@ -59,23 +63,25 @@ public class UsuarioVistaAdapter extends RecyclerView.Adapter<UsuarioVistaAdapte
 
 
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder {
-        CardView cv;
         TextView nombre;
-        TextView apellido;
         TextView codigo;
+        ImageView imageView;
         TextView fecha;
         TextView uso;
-        ImageView imageView;
+        TextView txtfecha;
+        TextView txtuso;
+        LinearLayout contenedorAdapter;
 
         UsuarioViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.imagenCard);
             nombre = (TextView) itemView.findViewById(R.id.nombreCard);
-            apellido = (TextView) itemView.findViewById(R.id.apellidoCard);
             codigo = (TextView) itemView.findViewById(R.id.codigoCard);
             fecha = (TextView) itemView.findViewById(R.id.fechaCard);
+            txtfecha = (TextView) itemView.findViewById(R.id.fechaAdapter);
             uso = (TextView) itemView.findViewById(R.id.usoCard);
-            cv = (CardView) itemView.findViewById(R.id.carta);
+            txtuso = (TextView) itemView.findViewById(R.id.usoAdapter);
+            contenedorAdapter = (LinearLayout) itemView.findViewById(R.id.contenedorAdapter);
         }
     }
 }
