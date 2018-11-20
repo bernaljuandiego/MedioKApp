@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_multi_login"
-    android:background="@drawable/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
+    android:background="@drawable/fondo"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="130dp"
     tools:context=".activities.MultiLoginActivity">
 
 
     <android.support.v7.widget.CardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="40dp"
-        app:cardBackgroundColor="#ffffff"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="6dp"
-        app:contentPadding="0dp">
+        app:cardElevation="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -36,43 +43,25 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_margin="20dp"
-                android:layout_marginStart="39dp"
-                android:layout_marginLeft="39dp"
-                android:layout_weight="1"
+                android:layout_weight="5"
                 app:srcCompat="@drawable/mediokapp_logo" />
 
-            <ScrollView
-                android:id="@+id/login_form"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
-                android:layout_weight="1">
+                android:layout_weight="8"
+                android:paddingBottom="20dp"
+                android:text="@string/welcome_message"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:autoSizeTextType="uniform" />
 
-                <LinearLayout
-                    android:id="@+id/email_login_form"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="20dp"
-                        android:text="@string/welcome_message"
-                        android:textAlignment="center"
-                        android:textColor="#000000" />
-
-                    <com.google.android.gms.common.SignInButton
-                        android:id="@+id/signInButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="20dp"></com.google.android.gms.common.SignInButton>
-
-                </LinearLayout>
-
-            </ScrollView>
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/signInButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="10"></com.google.android.gms.common.SignInButton>
 
         </LinearLayout>
 
@@ -87,7 +76,4 @@
         android:visibility="gone" />
 
 
-
-
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

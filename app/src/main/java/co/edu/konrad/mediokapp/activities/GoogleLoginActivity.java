@@ -30,7 +30,6 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
     private ImageView photoGoogleLogin;
     private TextView nameGoogleLogin;
     private TextView emailGoogleLogin;
-    private TextView idTextView;
 
     private GoogleApiClient googleApiClient;
 
@@ -42,7 +41,6 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
         photoGoogleLogin = (ImageView) findViewById(R.id.photoGoogleLogin);
         nameGoogleLogin = (TextView) findViewById(R.id.nameTextView);
         emailGoogleLogin = (TextView) findViewById(R.id.emailTextView);
-        idTextView = (TextView) findViewById(R.id.idTextView);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -78,7 +76,6 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
             GoogleSignInAccount account = result.getSignInAccount();
             nameGoogleLogin.setText(account.getDisplayName());
             emailGoogleLogin.setText(account.getEmail());
-            idTextView.setText(account.getId());
             Glide.with(this).load(account.getPhotoUrl()).into(photoGoogleLogin);
         } else {
             goGoogleLoginOut();
@@ -122,6 +119,5 @@ public class GoogleLoginActivity extends AppCompatActivity implements GoogleApiC
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
+        Toast.makeText(getApplicationContext(), "No hay acceso a internet!!!", Toast.LENGTH_SHORT).show();    }
 }
